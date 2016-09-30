@@ -1,9 +1,11 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import carousel3Component from './carousel3.component';
+import 'angular-flexslider';
 
 let carousel3Module = angular.module('carousel3', [
-  uiRouter
+  uiRouter,
+  'angular-flexslider'
 ])
 
 .config(($stateProvider) => {

@@ -1,9 +1,28 @@
 <navbar></navbar>
-<div>
+<section class="hero">
+  <br>
+
   <h1>
     <a href="{{$ctrl.libData.url}}" target="_blank">{{ $ctrl.libData.name}}</a>
   </h1>
   <p>
     It requires jQuery: {{$ctrl.libData.requireJquery}}
   </p>
-</div>
+
+  <br>
+  <div ng-if="$ctrl.items.length">
+
+    <flex-slider slide="item in $ctrl.items track by $index"
+                 direction-nav="false"
+                 animation="slide"
+    >
+      <li class="carousel-item-dark">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+        <button type="button" class="remove-carousel-item" ng-click="$ctrl.deleteItem($index)">Delete</button>
+      </li>
+    </flex-slider>
+
+  </div>
+
+</section>

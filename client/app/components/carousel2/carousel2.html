@@ -14,10 +14,11 @@
 
     <swiper>
       <slides>
-        <slide>Slide 1</slide>
-        <slide>Slide 2</slide>
-        <slide>Slide 3</slide>
-        <slide>Slide 4</slide>
+        <slide ng-repeat="item in $ctrl.items track by $index">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+          <button type="button" class="remove-carousel-item" ng-click="$ctrl.deleteItem(carouselIndex2)">Delete</button>
+        </slide>
       </slides>
       <pagination></pagination>
     </swiper>

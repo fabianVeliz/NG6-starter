@@ -37,6 +37,10 @@ class Carousel2Controller {
       },
     ];
   }
+
+  deleteItem(index) {
+    this.items.splice(index, 1);
+  }
 }
 
 export default Carousel2Controller;

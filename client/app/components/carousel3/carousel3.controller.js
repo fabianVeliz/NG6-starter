@@ -3,8 +3,8 @@ class Carousel3Controller {
     this.name = 'carousel3';
 
     this.libData = {
-      name: 'angular-slick',
-      url: 'http://vasyabigi.github.io/angular-slick/',
+      name: 'flexslider',
+      url: 'https://woocommerce.com/flexslider/',
       requireJquery: true
     };
 
@@ -37,6 +37,12 @@ class Carousel3Controller {
       },
     ];
   }
+
+  deleteItem(index) {
+    this.items.splice(index, 1);
+  }
+
+
 }
 
 export default Carousel3Controller;
