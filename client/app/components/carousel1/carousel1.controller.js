@@ -40,7 +40,6 @@ class Carousel1Controller {
 
   deleteItem(index) {
     this.items.splice(index, 1);
-    console.log('delete ' + index);
   }
 }
 
