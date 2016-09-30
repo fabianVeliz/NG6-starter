@@ -1,9 +1,13 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import carousel1Component from './carousel1.component';
+import 'angular-touch';
+import 'angular-carousel';
 
 let carousel1Module = angular.module('carousel1', [
-  uiRouter
+  uiRouter,
+  'ngTouch',
+  'angular-carousel'
 ])
 
 .config(($stateProvider) => {
