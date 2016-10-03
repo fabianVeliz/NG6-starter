@@ -20,6 +20,8 @@ class Carousel1Controller {
         text: 'Consequat ea laboris est ad ipsum ipsum cupidatat dolore reprehenderit tempor cupidatat eu excepteur nostrud. Adipisicing cillum et sit sint cupidatat qui consequat aute pariatur eu aliqua incididunt excepteur veniam.'
       }
     ];
+
+    this.settings = { slideSpeed : 1000 }
   }
 }
 

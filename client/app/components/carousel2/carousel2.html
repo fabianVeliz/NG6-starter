@@ -1,7 +1,9 @@
 <navbar></navbar>
-<div>
-  <h1>{{ $ctrl.name }}</h1>
-  <p>
-    carousel 2
-  </p>
+<div class="hero">
+  <h1>
+    <a href="{{$ctrl.libraryData.link}}">{{ $ctrl.libraryData.name }}</a>
+  </h1>
+  <h2>It requires jQuery: {{$ctrl.libraryData.requireJquery}}</h2>
+
+  <swiper collection="$ctrl.collection" settings="$ctrl.settings"></swiper>
 </div>

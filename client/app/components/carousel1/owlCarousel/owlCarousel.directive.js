@@ -4,32 +4,33 @@ owlCarousel.$inject = ['$timeout'];
 function owlCarousel ($timeout) {
   return {
       scope: {
-        collection: '='
+        collection: '=',
+        settings: '=?'
       },
       restrict: 'EA',
       templateUrl: '/app/components/carousel1/owlCarousel/owlCarousel.html',
       link: function (scope, element) {
-        let slider;
-
         scope.removeItem = removeItem;
 
-        const carouselConfig = {
+        let slider;
+
+        let defaultSettings = {
           autoPlay: true,
-          slideSpeed : 300,
-          paginationSpeed : 400,
           singleItem:true,
           stopOnHover: true,
           items: 1
         };
 
+        let settings = angular.extend(defaultSettings, scope.settings);
+
         $timeout( () => {
-          slider = $('#carousel-1');
-          slider.owlCarousel(carouselConfig);
+          slider = $('#carousel-1', element);
+          slider.owlCarousel(settings);
         });
 
         function removeItem(index) {
           if (confirm('Are you sure?')) {
-            // Send request to the BE
+            // Here, send request to the BE
             slider.data('owlCarousel').removeItem(index);
           }
         }
