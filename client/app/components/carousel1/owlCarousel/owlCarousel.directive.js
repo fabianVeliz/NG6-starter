@@ -1,41 +1,40 @@
-// Just for demo purposes
-owlCarousel.$inject = ['$timeout'];
+import template from './owlCarousel.html';
 
-function owlCarousel ($timeout) {
-  return {
-      scope: {
-        collection: '=',
-        settings: '=?'
-      },
-      restrict: 'EA',
-      templateUrl: '/app/components/carousel1/owlCarousel/owlCarousel.html',
-      link: function (scope, element) {
-        scope.removeItem = removeItem;
+class owlCarouselDirective {
+  constructor($timeout) {
+    this.$timeout = $timeout;
 
-        let slider;
+    this.restrict = 'E';
+    this.template = template;
+    this.scope = {
+      collection: '=',
+      settings: '=?'
+    };
+  }
 
-        let defaultSettings = {
-          autoPlay: true,
-          singleItem:true,
-          stopOnHover: true,
-          items: 1
-        };
+  link(scope, element) {
+    let slider;
+    let defaultSettings = {
+      autoPlay: true,
+      singleItem:true,
+      stopOnHover: true,
+      items: 1
+    };
 
-        let settings = angular.extend(defaultSettings, scope.settings);
+    let settings = angular.extend(defaultSettings, scope.settings);
 
-        $timeout( () => {
-          slider = $('#carousel-1', element);
-          slider.owlCarousel(settings);
-        });
+    this.$timeout( () => {
+      slider = $('#carousel-1', element);
+      slider.owlCarousel(settings);
+    });
 
-        function removeItem(index) {
-          if (confirm('Are you sure?')) {
-            // Here, send request to the BE
-            slider.data('owlCarousel').removeItem(index);
-          }
-        }
+    scope.removeItem = (index) => {
+      if (confirm('Are you sure?')) {
+        // Here, Send request to the BE
+        slider.data('owlCarousel').removeItem(index);
       }
-  };
+    }
+  }
 }
 
-export default owlCarousel;
+export default owlCarouselDirective;

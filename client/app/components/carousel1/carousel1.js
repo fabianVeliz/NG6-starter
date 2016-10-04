@@ -17,7 +17,7 @@ let carousel1Module = angular.module('carousel1', [
 })
 
 .component('carousel1', carousel1Component)
-.directive('owlCarousel', owlCarouselDirective)
+.directive('owlCarousel', ['$timeout', ($timeout) => new owlCarouselDirective($timeout)])
 
 .name;
 
