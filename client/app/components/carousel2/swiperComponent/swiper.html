@@ -1,0 +1,10 @@
+<div class="swiper-container" id="{{$ctrl.sliderId}}">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" ng-repeat="item in $ctrl.collection track by $index">
+          <h2>{{item.title}}</h2>
+          <p>{{item.text}}</p>
+          <button type="button" class="remove-item" ng-click="$ctrl.removeItem($index)">Remove Item</button>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>

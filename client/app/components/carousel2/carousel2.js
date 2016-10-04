@@ -2,9 +2,11 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import swiperDirective from './swiper/swiper.directive';
 import carousel2Component from './carousel2.component';
+import SwiperComp from './swiperComponent/swiper';
 
 let carousel2Module = angular.module('carousel2', [
-  uiRouter
+  uiRouter,
+  SwiperComp
 ])
 
 .config(($stateProvider) => {

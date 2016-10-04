@@ -5,5 +5,16 @@
   </h1>
   <h2>It requires jQuery: {{$ctrl.libraryData.requireJquery}}</h2>
 
-  <swiper collection="$ctrl.collection" settings="$ctrl.settings"></swiper>
+  <br>
+
+  <h3>
+    Directive (swiper folder)
+  </h3>
+  <swiper collection="$ctrl.collection" settings="$ctrl.settings" slider-id="swiper-1"></swiper>
+
+  <h3>
+    Component (swiperComponent folder)
+  </h3>
+  <swiper-comp collection="$ctrl.collection" settings="$ctrl.settings" slider-id="swiper-2"></swiper-comp>
+
 </div>

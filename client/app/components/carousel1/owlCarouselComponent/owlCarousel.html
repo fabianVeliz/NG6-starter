@@ -1,0 +1,7 @@
+<div class="owl-carousel owl-theme" id="carousel-1">
+  <div class="item" ng-repeat="item in $ctrl.collection track by $index">
+    <h2>{{item.title}}</h2>
+    <p>{{item.text}}</p>
+    <button type="button" class="remove-item" ng-click="$ctrl.removeItem($index)">Remove Item</button>
+  </div>
+</div>

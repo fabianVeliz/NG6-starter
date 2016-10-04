@@ -2,9 +2,11 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import carousel1Component from './carousel1.component';
 import owlCarouselDirective from './owlCarousel/owlCarousel.directive';
+import OwlCarousel from './owlCarouselComponent/owlCarousel';
 
 let carousel1Module = angular.module('carousel1', [
-  uiRouter
+  uiRouter,
+  OwlCarousel
 ])
 
 .config(($stateProvider) => {

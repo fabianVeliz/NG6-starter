@@ -8,7 +8,8 @@ class swiper {
     this.template = template;
     this.scope = {
       collection: '=',
-      settings: '=?'
+      settings: '=?',
+      sliderId: '@'
     };
   }
 
@@ -24,10 +25,10 @@ class swiper {
     let settings = angular.extend(defaultSettings, scope.settings);
 
     this.$timeout( () => {
-      slider = new Swiper('.swiper-container', settings);
+      slider = new Swiper('#' + scope.sliderId, settings);
 
       // @TODO: Workaround to stop slider on
-      $('.swiper-container').hover(slider.stopAutoplay, slider.startAutoplay);
+      $('#' + scope.sliderId).hover(slider.stopAutoplay, slider.startAutoplay);
     });
 
     scope.removeItem = (index) => {
