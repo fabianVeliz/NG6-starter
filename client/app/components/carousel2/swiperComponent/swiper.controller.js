@@ -1,34 +1,33 @@
 class swiperController {
   /*@ngInject*/
-  constructor($element, $timeout) {
-    let vm = this;
+  constructor($timeout) {
+    this.$timeout = $timeout;
+    this.slider = null;
+  }
 
-    vm.$postLink = ()  => {
-      let slider;
-      let defaultSettings = {
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
-        autoplay: 1000,
-        autoplayDisableOnInteraction: false
-      };
+  $postLink = ()  => {
+    let defaultSettings = {
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
+      autoplay: 1000,
+      autoplayDisableOnInteraction: false
+    };
 
-      let settings = angular.extend(defaultSettings, vm.settings);
+    let settings = angular.extend(defaultSettings, this.settings);
 
-      $timeout( () => {
-        slider = new Swiper('#' + vm.sliderId, settings);
+    this.$timeout( () => {
+      this.slider = new Swiper('#' + this.sliderId, settings);
 
-        // @TODO: Workaround to stop slider on
-        $('#' + vm.sliderId).hover(slider.stopAutoplay, slider.startAutoplay);
-      });
+      // @TODO: Workaround to stop slider on hover
+      $('#' + this.sliderId).hover(this.slider.stopAutoplay, this.slider.startAutoplay);
+    });
+  }
 
-      vm.removeItem = (index) => {
-        if (confirm('Are you sure?')) {
-          // Here, Send request to the BE
-          slider.removeSlide(index);
-        }
-      }
+  removeItem = (index) => {
+    if (confirm('Are you sure?')) {
+      // Here, Send request to the BE
+      this.slider.removeSlide(index);
     }
-
   }
 }
 

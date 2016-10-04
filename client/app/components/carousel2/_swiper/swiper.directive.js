@@ -25,12 +25,8 @@ function swiper ($timeout) {
         $timeout( () => {
           slider = new Swiper('.swiper-container', settings);
 
-          // @TODO: Workaround to stop slider on
-          $('.swiper-container').hover(() => {
-            slider.stopAutoplay();
-          }, () => {
-            slider.startAutoplay();
-          });
+          // @TODO: Workaround to stop slider on hover
+          $('.swiper-container').hover(slider.stopAutoplay, slider.startAutoplay);
         });
 
 

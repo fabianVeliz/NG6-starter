@@ -27,7 +27,7 @@ class swiper {
     this.$timeout( () => {
       slider = new Swiper('#' + scope.sliderId, settings);
 
-      // @TODO: Workaround to stop slider on
+      // @TODO: Workaround to stop slider on hover
       $('#' + scope.sliderId).hover(slider.stopAutoplay, slider.startAutoplay);
     });
 

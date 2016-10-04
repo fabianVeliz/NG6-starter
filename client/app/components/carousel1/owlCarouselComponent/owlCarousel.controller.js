@@ -1,32 +1,32 @@
 class owlCarouselController {
   /*@ngInject*/
   constructor($element, $timeout) {
-    let vm = this;
+    this.$element = $element;
+    this.$timeout = $timeout;
+    this.slider = null;
+  }
 
-    vm.$postLink = ()  => {
-      let slider;
-      let defaultSettings = {
-        autoPlay: true,
-        singleItem:true,
-        stopOnHover: true,
-        items: 1
-      };
+  $postLink = ()  => {
+    let defaultSettings = {
+      autoPlay: true,
+      singleItem:true,
+      stopOnHover: true,
+      items: 1
+    };
 
-      let settings = angular.extend(defaultSettings, vm.settings);
+    let settings = angular.extend(defaultSettings, this.settings);
+    this.$timeout( () => {
+      this.slider = $('#carousel-1', this.$element);
+      this.slider.owlCarousel(settings);
+    });
 
-      $timeout( () => {
-        slider = $('#carousel-1', $element);
-        slider.owlCarousel(settings);
-      });
+  }
 
-      vm.removeItem = (index) => {
-        if (confirm('Are you sure?')) {
-          // Here, Send request to the BE
-          slider.data('owlCarousel').removeItem(index);
-        }
-      }
+  removeItem = (index) => {
+    if (confirm('Are you sure?')) {
+      // Here, Send request to the BE
+      this.slider.data('owlCarousel').removeItem(index);
     }
-
   }
 }
 
